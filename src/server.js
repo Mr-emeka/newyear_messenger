@@ -4,10 +4,17 @@ import uuid from 'uuid/v4';
 import session from 'express-session';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 
 // Configure .env
 dotenv.config();
 const app = express();
+
+mongoose.connect(`mongodb+srv://newyear:${process.env.DB_PASSWORD}@cluster0-mdsrn.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser : true, useUnifiedTopology: true})
+.then(() => {
+  console.log('database connected successfully')
+})
+.catch(e => console.log(e))
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
