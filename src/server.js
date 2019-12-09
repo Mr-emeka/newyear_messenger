@@ -5,6 +5,8 @@ import session from 'express-session';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+// response helper
+import jsonResponse from './helpers/helper'; 
 
 // Configure .env
 dotenv.config();
@@ -30,12 +32,17 @@ app.use(session({
    saveUninitialized: true
 }))
 
+// port
 const PORT = process.env.PORT || 5000;
 
 
 app.get('/', (req, res) => {
   console.log(req.sessionID)
-  res.send('hello');
+  jsonResponse.success(res, 'success', 200, 'hello');
+})
+
+app.use('*', (req, res) => {
+  jsonResponse.error(res, 'error', 404, 'incorrect route');
 })
 
 app.listen(PORT, () => {
