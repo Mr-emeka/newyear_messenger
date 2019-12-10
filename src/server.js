@@ -7,6 +7,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 // response helper
 import jsonResponse from './helpers/helper'; 
+// routers
+import router from './routes/postMessage.route';
 
 // Configure .env
 dotenv.config();
@@ -22,15 +24,17 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 // configure session
-app.use(session({
-  genid: (req) => {
-  console.log(req.sessionID);
-  return uuid();
-  },
-   secret: process.env.SESSION_KEY,
-   resave: false,
-   saveUninitialized: true
-}))
+// app.use(session({
+//   genid: (req) => {
+//   console.log(req.sessionID);
+//   return uuid();
+//   },
+//    secret: process.env.SESSION_KEY,
+//    resave: false,
+//    saveUninitialized: true
+// }))
+
+app.use('/api/v1', router);
 
 // port
 const PORT = process.env.PORT || 5000;
