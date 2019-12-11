@@ -15,5 +15,4 @@ const jsonResponse = {
     })
   }
 }
-
 export default jsonResponse;
