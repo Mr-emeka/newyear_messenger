@@ -83,3 +83,5 @@ app.use('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server runing on PORT ${PORT} visit http://localhost:${PORT}`);
 })
+// To enable test
+export default app;
