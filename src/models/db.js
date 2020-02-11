@@ -5,10 +5,10 @@ const message = new Schema({
     //     type: String,
     //     default: 'jjjjjj'
     // },
-    message: {
-        type: String,
-        required: true
-    },
+    // message: {
+    //     type: String,
+    //     required: true
+    // },
     receiversEmail: {
         type: [],
         required: true
