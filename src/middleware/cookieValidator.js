@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import jsonResponse from '../helpers/helper';
+import jsonResponse from '../helpers/response';
 
 const validateCookie = (req, res, next) => {
     if (req.cookies.userId) {

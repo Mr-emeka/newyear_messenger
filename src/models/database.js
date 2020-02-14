@@ -40,9 +40,10 @@ const messageTable = async () => {
     messages(
         id SERIAL PRIMARY KEY UNIQUE,
         user_id VARCHAR(1500) NOT NULL,
-        message VARCHAR(1000000) NOT NULL,
+        name VARCHAR(500) NOT NULL,
         sender_email VARCHAR(500) NOT NULL,
         receiver_emails TEXT [] NOT NULL,
+        message VARCHAR(1000000) NOT NULL,
         date VARCHAR(200) NOT NULL
     )`;
 
