@@ -1,17 +1,17 @@
 // import messageSchema from '../models/db';
 import pool from '../models/database';
-import jsonResponse from '../helpers/helper';
+import jsonResponse from '../helpers/response';
 
 const postMessage = async (req, res) => {
     try {
-        const { receiversEmail, senderEmail, message } = req.body;
+        const { name, message, senderEmail, receiversEmail, date } = req.body;
         const userId = req.cookies.userId;
         
 
         console.log(receiversEmail)
 
-        const save = await pool.query(`INSERT INTO messages (user_id, message, sender_email, receiver_emails, date) 
-        VALUES ($1, $2, $3, ARRAY [$4], $5) RETURNING *`, [userId, message.concat(`\n\n\n ${senderEmail}`), senderEmail, receiversEmail.split(' '), new Date().toLocaleString()]);
+        const save = await pool.query(`INSERT INTO messages (user_id, name, sender_email, receiver_emails, message, date) 
+        VALUES ($1, $2, $3, ARRAY [$4], $5, $6) RETURNING *`, [userId, name, senderEmail, receiversEmail.split(' '),  message, date]);
 
         jsonResponse.success(res, 'success', 201, {
             message: 'done',

@@ -7,13 +7,17 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cron from 'node-cron';
 import cookieParser from 'cookie-parser';
+import schedule from 'node-schedule';
 
 // response helper
-import jsonResponse from './helpers/helper';
+import jsonResponse from './helpers/response';
 
 
 // routers
-import router from './routes/postMessage.route';
+// message route
+import messageRoute from './routes/postMessage.route';
+// send route
+import mailRoute from './routes/sendEmail.route';
 
 // Configure .env
 dotenv.config();
@@ -32,9 +36,8 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 5000;
 
-
-app.use('/api/v1', router);
-
+app.use('/api/v1', messageRoute);
+app.use('/api/v1', mailRoute)
 
 
 app.use('*', (req, res) => {
