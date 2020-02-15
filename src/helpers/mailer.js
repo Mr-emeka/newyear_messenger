@@ -1,29 +1,14 @@
-import nodeMailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const transporter = nodeMailer.createTransport({
-  service: 'gmail',
+let transporter = nodemailer.createTransport({
+  service: 'Gmail',
   auth: {
-    user: process.env.GMAIL,
-    pass: process.env.PASSWORD
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
   }
-})
+});
 
-const mailFormat = {
-  mail(from, to, subject, html) {
-    const mailOption = {
-      from,
-      to,
-      subject,
-      html
-    }
-    return mailOption;
-  }
-}
-
-
-
-
-export default { transporter, mailFormat };
+export default transporter;
