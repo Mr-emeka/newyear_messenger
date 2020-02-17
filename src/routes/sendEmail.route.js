@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import sendEmail from '../controllers/mailer';
-// import validateCookie from '../middleware/cookieValidator';
+// import { Router } from 'express';
+// // import { sendMail } from '../controllers/mailer';
+// // import validateCookie from '../middleware/cookieValidator';
 
-const sendRouter = Router();
+// const sendRouter = Router();
 
-sendRouter.get('/send', sendEmail);
+// sendRouter.get('/send', sendMail);
 
-export default sendRouter;
+// export default sendRouter;

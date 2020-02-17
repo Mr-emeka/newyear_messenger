@@ -15,9 +15,9 @@ import jsonResponse from './helpers/response';
 
 // routers
 // message route
-import messageRoute from './routes/postMessage.route';
+import messageRoute from './routes/Message.route';
 // send route
-import mailRoute from './routes/sendEmail.route';
+// import mailRoute from './routes/sendEmail.route';
 
 // Configure .env
 dotenv.config();
@@ -37,7 +37,7 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
 
 app.use('/api/v1', messageRoute);
-app.use('/api/v1', mailRoute)
+// app.use('/api/v1', mailRoute)
 
 
 app.use('*', (req, res) => {

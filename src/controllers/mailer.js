@@ -28,8 +28,8 @@ var dates = new Date(year, month, date, hour, minute, secondUse);
 let theDate;
 
 let compare = selectedDay.toJSON();
-let comparing = compare.substr(0, 16);
-
+export let comparing = compare.substr(0, 16);
+console.log(comparing)
 var j = schedule.scheduleJob('* * * * * *', async function () {
     const getEntries = await pool.query(`SELECT date FROM messages`);
 
@@ -68,48 +68,3 @@ var j = schedule.scheduleJob('* * * * * *', async function () {
 
     }
 });
-
-
-
-
-
-const sendMail = async (req, res) => {
-    try {
-        const getEntries = await pool.query(`SELECT * FROM messages WHERE date=$1`, ['2020-02-12T11:38']);
-    
-        var date = new Date(2020, 1, 12, 19, 2, 0);;
-
-        var j = schedule.scheduleJob(date, function () {
-            console.log('The world is going to end today djncjdncj.');
-        });
-        // }
-
-
-        let mailOptions = {
-            from: 'damilolaibrahim77@gmail.com',
-            to: `${getEntries.rows[0].receiver_emails[0]}`,
-            subject: "mail",
-            text: "still testing",
-            html: `<p>${getEntries.rows[0].message}</p>
-            <div style="margin-top: 3em">
-            <p>Regards</p>
-            <p>${getEntries.rows[0].name}</p>
-            ${getEntries.rows[0].sender_email}</div>`
-        }
-        // send mail
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log('an error', error);
-            }
-            console.log('message sent', info);
-        });
-
-        return jsonResponse.success(res, 'success', 201, 'success');
-
-    }
-    catch (e) {
-
-    }
-}
-
-export default sendMail;
