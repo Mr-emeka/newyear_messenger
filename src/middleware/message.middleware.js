@@ -6,7 +6,7 @@ const messageValidator = (req, res, next) => {
     const userId = req.cookies.userId;
 
     // if body values are empty
-    if (!name || !message || !senderEmail || !receiversEmail || !date || !userId) {
+    if (!name || !message || !senderEmail || !receiversEmail || !date) {
         return jsonResponse.error(res, 'error', 400, 'entries should all be filled');
     }
 
@@ -17,12 +17,12 @@ const messageValidator = (req, res, next) => {
 
     // senderemail validation
     if (!(/[\w]+@[a-zA-Z]+\.[a-zA-Z]{2}/.test(senderEmail))) {
-        return jsonResponse.error(res, 'error', 400, 'invalid email');
+        return jsonResponse.error(res, 'error', 400, 'invalid email format');
     }
 
     // receiveremail validation
     if (!(/[\w]+@[a-zA-Z]+\.[a-zA-Z]{2}/.test(receiversEmail))) {
-        return jsonResponse.error(res, 'error', 400, 'invalid email');
+        return jsonResponse.error(res, 'error', 400, 'invalid email format');
     }
 
     // date validation

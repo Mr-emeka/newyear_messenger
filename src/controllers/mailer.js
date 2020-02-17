@@ -2,6 +2,7 @@ import schedule from 'node-schedule';
 import pool from '../models/database';
 import transporter from '../helpers/mailer';
 import jsonResponse from '../helpers/response';
+
 let selectedDay = new Date();
 
 let year,

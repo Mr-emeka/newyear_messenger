@@ -11,7 +11,6 @@ export const postMessage = async (req, res) => {
         VALUES ($1, $2, $3, ARRAY [$4], $5, $6) RETURNING *`, [userId, name, senderEmail, receiversEmail.split(' '),  message, date]);
 
         jsonResponse.success(res, 'success', 201, {
-            message: 'done',
             data: save.rows[0]
         });
 
@@ -26,7 +25,7 @@ export const getMessages = async (req, res) => {
         const userId = req.cookies.userId;
         const myMessages = await pool.query(`SELECT * FROM messages WHERE user_id=$1`, [userId]);
 
-        return jsonResponse.success(res, 'success', 201, {
+        return jsonResponse.success(res, 'success', 200, {
             data: myMessages.rows
         });
 

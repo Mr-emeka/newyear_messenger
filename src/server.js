@@ -14,10 +14,11 @@ import jsonResponse from './helpers/response';
 
 
 // routers
+//welcome route
+// import welcomeRoute from './routes/welcome.route';
 // message route
 import messageRoute from './routes/Message.route';
-// send route
-// import mailRoute from './routes/sendEmail.route';
+// import validateCookie from './middleware/cookieValidator';
 
 // Configure .env
 dotenv.config();
@@ -36,9 +37,8 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 5000;
 
+// app.get('/', validateCookie);
 app.use('/api/v1', messageRoute);
-// app.use('/api/v1', mailRoute)
-
 
 app.use('*', (req, res) => {
   jsonResponse.error(res, 'error', 404, 'incorrect route');
