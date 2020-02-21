@@ -1,0 +1,38 @@
+<% include partials/header %>
+<div>
+  <form>
+    <label for="date">Schedule date</label><br />
+    <input type="datetime-local" /><br />
+    <input type="text" placeholder="fullname" /><br />
+    <input type="text" placeholder="subject" /><br />
+    <input type="text" placeholder="sender email" /><br />
+    <input type="text" placeholder="receiver emails" /><br />
+    <input type="text" placeholder="message" /><br />
+    <input type="button" value="Submit" id="submit" />
+  </form>
+</div>
+<script>
+  const btn = document.querySelector("#submit");
+
+  btn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    fetch('/api/v1/create', {
+      method: "POST",
+      body: JSON.stringify({
+        name: "monjnnkj",
+        subject: "kckjjckckdckdnmkk",
+        senderEmail: "ibrahimdamy7@gmail.com",
+        message:
+          "mnc jdc cjcnd cwudcd cuwececdc ecueucbec wecwiuecjewcwe cwecuweicbe",
+        receiversEmail: "ibrahimdamy7@gmail.com cdmcdmkcdmkd@email.com",
+        date: "2020-02-21T15:05"
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => console.log(res))
+      .catch(e => console.log());
+  });
+</script>
+<% include partials/footer %>

@@ -9,7 +9,7 @@ const validateCookie = (req, res, next) => {
     else {
       res.cookie('userId', uuid())
       console.log('cookie created');
-      // jsonResponse.success(res, 'success', 201, 'user id created');
+      res.render('index');
     }
     next();
 
