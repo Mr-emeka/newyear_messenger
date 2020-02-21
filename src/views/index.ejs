@@ -1,0 +1,70 @@
+<% include partials/header %>
+<div>
+  <form>
+    <label for="date">Schedule date</label><br />
+    <input type="datetime-local" class="date" /><br />
+    <input type="text" placeholder="fullname" class="name" /><br />
+    <input type="text" placeholder="subject" class="subject" /><br />
+    <input type="text" placeholder="sender email" class="senderemail" /><br />
+    <input
+      type="text"
+      placeholder="receiver emails"
+      class="receiveremail"
+    /><br />
+    <input type="text" placeholder="message" class="message" /><br />
+    <input type="button" value="Submit" id="submit" />
+  </form>
+</div>
+<script src="/js/index.js"></script>
+<script>
+//   const date = document.querySelector('.date');
+//   const name = document.querySelector('.name');
+//   const subject = document.querySelector('.subject');
+//   const senderEmail = document.querySelector('.senderemail');
+//   const receiversEmail = document.querySelector('.receiveremail');
+//   const message = document.querySelector('.message');
+//   const btn = document.querySelector("#submit");
+
+//   console.log(date.value)
+//   console.log(name)
+//   console.log(subject)
+//   console.log(senderEmail)
+//   console.log(receiversEmail)
+//   console.log(message)
+
+//   let resEmails = receiversEmail.value.split(' ');
+
+//   const body = {
+//         name: name.value,
+//         subject: subject.value,
+//         senderEmail: senderEmail.value,
+//         message: message.value,
+//         receiversEmail: 'ibrahimdamy7@gmail.com damilolaibrahim77@gmail.com',
+//         date: date.value
+//   }
+
+//   btn.addEventListener('click', async e => {
+//     e.preventDefault();
+
+
+//     console.log(date.value)
+//   console.log(name.value)
+//   console.log(subject.value)
+//   console.log(senderEmail.value)
+//   console.log(receiversEmail.value)
+//   console.log(message.value)
+
+//     await fetch('/api/v1/create', {
+//       method: "POST",
+//       body: JSON.stringify(body),
+//       headers: {
+//         "Content-Type": "application/json"
+//       }
+//     })
+//       .then(res => console.log(res))
+//       .catch(e => console.log(e));
+
+      
+//   });
+</script>
+<% include partials/footer %>

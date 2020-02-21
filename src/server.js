@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import cron from 'node-cron';
 import cookieParser from 'cookie-parser';
 import schedule from 'node-schedule';
+import path from 'path';
 
 // response helper
 import jsonResponse from './helpers/response';
@@ -18,17 +19,16 @@ import jsonResponse from './helpers/response';
 // import welcomeRoute from './routes/welcome.route';
 // message route
 import messageRoute from './routes/Message.route';
-// import validateCookie from './middleware/cookieValidator';
+import validateCookie from './middleware/cookieValidator';
 
 // Configure .env
 dotenv.config();
 const app = express();
 
-// mongoose.connect('mongodb+srv://newyear:elegantdevelopers@cluster0-mdsrn.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useMongoClient: true })
-//   .then(() => {
-//     console.log('database connected successfully')
-//   })
-//   .catch(e => console.log(e))
+//ejs
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.static(path.join(__dirname, '../public')));
+app.set('view engine', 'ejs');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -37,10 +37,13 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 5000;
 
-// app.get('/', validateCookie);
+app.get('/', validateCookie, (req, res) => {
+  res.render('index')
+});
 app.use('/api/v1', messageRoute);
 
 app.use('*', (req, res) => {
+  
   jsonResponse.error(res, 'error', 404, 'incorrect route');
 })
 
