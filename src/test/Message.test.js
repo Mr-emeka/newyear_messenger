@@ -16,6 +16,7 @@ describe('Message', () => {
         name: '',
         message: '',
         senderEmail: '',
+        subject: '',
         receiversEmail: '',
         date: '2030-02-17T10:59'
       })
@@ -37,6 +38,7 @@ describe('Message', () => {
         name: 'me',
         message: 'i am writing this for test',
         senderEmail: 'me@gmail.com',
+        subject: 'my subject',
         receiversEmail: 'you@email.com him@email.com her@email.com',
         date: '2030-02-17T10:59'
       })
@@ -58,6 +60,7 @@ describe('Message', () => {
         name: 'mohammed',
         message: 'i am writing this for test',
         senderEmail: 'me@gmail.c',
+        subject: 'my subject',
         receiversEmail: 'you@email.com him@email.com her@email.com',
         date: '2030-02-17T10:59'
       })
@@ -79,6 +82,7 @@ describe('Message', () => {
         name: 'mohammed',
         message: 'i am writing this for test',
         senderEmail: 'me@gmail.c',
+        subject: 'my subject',
         receiversEmail: 'you@email.c him@email.n her@email.o',
         date: '2030-02-17T10:59'
       })
@@ -100,6 +104,7 @@ describe('Message', () => {
         name: 'mohammed',
         message: 'i am writing this for test',
         senderEmail: 'me@g.com',
+        subject: 'my subject',
         receiversEmail: 'you@email.com him@email.com her@email.com',
         date: '2010/02/17T10:59' //date format should be seperated by (-) and not (/) or any other format
       })
@@ -122,6 +127,7 @@ describe('Message', () => {
         name: 'mohammed',
         message: 'i am writing this for test',
         senderEmail: 'me@g.com',
+        subject: 'my subject',
         receiversEmail: 'you@email.com him@email.com her@email.com',
         date: '2010-02-17T10:59' //date is set to year 2010 which is a past date
       })
@@ -143,6 +149,7 @@ describe('Message', () => {
         name: 'mohammed',
         message: 'i am writing this for test',
         senderEmail: 'me@gmail.com',
+        subject: 'my subject',
         receiversEmail: 'you@email.com him@email.com her@email.com',
         date: '2030-02-17T10:59'
       })

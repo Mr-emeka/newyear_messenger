@@ -4,11 +4,11 @@ import jsonResponse from '../helpers/response';
 
 export const postMessage = async (req, res) => {
     try {
-        const { name, message, senderEmail, receiversEmail, date } = req.body;
+        const { name, message, senderEmail, receiversEmail, subject, date } = req.body;
         const userId = req.cookies.userId;
 
-        const save = await pool.query(`INSERT INTO messages (user_id, name, sender_email, receiver_emails, message, date) 
-        VALUES ($1, $2, $3, ARRAY [$4], $5, $6) RETURNING *`, [userId, name, senderEmail, receiversEmail.split(' '),  message, date]);
+        const save = await pool.query(`INSERT INTO messages (user_id, name, sender_email, receiver_emails, subject, message, date) 
+        VALUES ($1, $2, $3, ARRAY [$4], $5, $6, $7) RETURNING *`, [userId, name, senderEmail, receiversEmail.split(' '), subject, message, date]);
 
         jsonResponse.success(res, 'success', 201, {
             data: save.rows[0]

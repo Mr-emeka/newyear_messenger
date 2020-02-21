@@ -2,11 +2,11 @@ import jsonResponse from '../helpers/response';
 import { comparing } from '../controllers/mailer';
 
 const messageValidator = (req, res, next) => {
-    const { name, message, senderEmail, receiversEmail, date } = req.body;
+    const { name, message, senderEmail, receiversEmail, subject, date } = req.body;
     const userId = req.cookies.userId;
 
     // if body values are empty
-    if (!name || !message || !senderEmail || !receiversEmail || !date) {
+    if (!name || !message || !senderEmail || !receiversEmail || !subject || !date) {
         return jsonResponse.error(res, 'error', 400, 'entries should all be filled');
     }
 
