@@ -3,10 +3,66 @@
     padding: 0;
 }
 
-body {
-    background-color: green;
+.form-div {
+    width: 20em;
+    text-align: center;
+    margin: 1em auto;
+    border: 1px solid green;
+    padding: 1em;
+    /* background-color: hotpink; */
 }
 
-h1 {
+form {
+    margin: 1em 2em;
+}
+
+form > input, textarea {
+    font-size: 1em;
+    margin: 0.5em 0;
+    padding: 1em 1em;
+    border-bottom: 1px solid red;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+textarea {
+    font-weight: bold;
+}
+
+form > p{ 
+    display: none;
+    color: red;
+}
+
+button {
+    margin-top: 0.5em;
+    color: hotpink;
+    background-color: indigo;
+    padding: 1em;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid green;
+    padding-top: 2em;
+    opacity: 1;
+    background-color: indigo;
+    width: 300px;
+    height: 5em; 
+    margin-left: -150px;
+    margin-top: -150px;
+    box-shadow: 1px 1px 2px #aaa;
+    display: none;
+}
+
+.modal > span{
+    position: relative;
+    left: 7em;
+    cursor: pointer;
     color: red;
 }
