@@ -23,6 +23,7 @@ import validateCookie from './middleware/cookieValidator';
 
 // Configure .env
 dotenv.config();
+
 const app = express();
 
 //ejs
