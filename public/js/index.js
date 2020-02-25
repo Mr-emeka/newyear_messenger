@@ -94,12 +94,15 @@ btn.addEventListener('click', async (e) => {
 
     console.log(response)
 
-    modal.style.display = 'block';
 
     if(response.message === 'entries should all be filled') {
-      messageModal.textContent = 'entries should all be filled';
+      modal.style.display = 'block';
+
+      messageModal.textContent = 'fill all fields';
     }
     if (response.status === 'success') {
+      modal.style.display = 'block';
+
       messageModal.textContent = 'message saved. your scheduled mail will be sent';
     }
 

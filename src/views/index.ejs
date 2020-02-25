@@ -1,11 +1,15 @@
 <% include partials/header %>
+<nav>
+  <img src="/images/Gmail free vector icons designed by Good Ware.png" alt="" height="50" />
+  <h3 class="brand">SEAMLESS MAILER</h3>
+</nav>
 <div class="form-div">
-      <div class="modal"><span class="cancel">X</span><h3 class="message-modal"></h3></div>
+      <div class="modal"><span class="cancel"><i class="fas fa-times"></i></span><h3 class="message-modal"></h3></div>
   <form>
     <label for="date">Schedule date</label><br />
     <input type="datetime-local" class="date" /><br />
     <p class="date-error">set a current or future date</p>
-    <input type="text" placeholder="Name" class="name" /><br />
+    <input type="text" placeholder="Your name" class="name" /><br />
     <p class="name-error">name should be more than 2 characters</p>
     <input type="text" placeholder="Subject" class="subject" /><br />
     <p class="subject-error">add a subject</p>

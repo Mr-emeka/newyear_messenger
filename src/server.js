@@ -43,7 +43,7 @@ app.get('/', validateCookie, (req, res) => {
 app.use('/api/v1', messageRoute);
 
 app.use('*', (req, res) => {
-  
+  res.render('error')
   jsonResponse.error(res, 'error', 404, 'incorrect route');
 })
 

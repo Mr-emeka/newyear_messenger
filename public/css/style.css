@@ -1,26 +1,44 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    padding-left: 1em;
+}
+
+.brand {
+    position: absolute;
+    top: 0.8em;
+    left: 3.5em;
+    color: #3aaba9;
+    font-family: Yeon Sung;
 }
 
 .form-div {
     width: 20em;
     text-align: center;
     margin: 1em auto;
-    border: 1px solid green;
+    border: 1px solid #3aaba9;
+    border-radius: 5px;
     padding: 1em;
-    /* background-color: hotpink; */
+    box-shadow: 1px 1px 2px #aaa;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 2px #aaa;;
 }
 
 form {
     margin: 1em 2em;
+    font-family: Open Sans ;
 }
 
 form > input, textarea {
     font-size: 1em;
     margin: 0.5em 0;
     padding: 1em 1em;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #3aaba9;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -37,10 +55,10 @@ form > p{
 
 button {
     margin-top: 0.5em;
-    color: hotpink;
-    background-color: indigo;
+    color: #3aaba9;
+    background-color: #ffffff;
     padding: 1em;
-    border: 1px solid blue;
+    border: 1px solid #3aaba9;
     border-radius: 5px;
 }
 
@@ -48,16 +66,18 @@ button {
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px solid green;
+    border: 1px solid #3aaba9;
+    color: #ffffff;
     padding-top: 2em;
     opacity: 1;
-    background-color: indigo;
+    background-color: #3aaba9;
     width: 300px;
-    height: 5em; 
+    height: 7em; 
     margin-left: -150px;
     margin-top: -150px;
     box-shadow: 1px 1px 2px #aaa;
     display: none;
+    border-radius: 5px;
 }
 
 .modal > span{
@@ -65,4 +85,50 @@ button {
     left: 7em;
     cursor: pointer;
     color: red;
+    font-size: 1.2;
+}
+
+.error {
+    text-align: center;
+    font-family: Open Sans ;
+}
+
+.error img {
+    width: 100%; 
+    height: 90vh;
+}
+
+.error h3 {
+    position: relative;
+    top: 3em;
+    color: #3aaba9;
+}
+
+.back {
+    position: relative;
+    bottom: 3em;
+    text-decoration: none;
+    color: #3aaba9;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+footer {
+    color: #ffffff;
+    text-align: center;
+    min-height: 2em;
+    margin-top: 2em;
+    padding-top: 1em;
+    background-color: #3aaba9;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff; 
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
