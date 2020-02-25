@@ -9,6 +9,7 @@ import cron from 'node-cron';
 import cookieParser from 'cookie-parser';
 import schedule from 'node-schedule';
 import path from 'path';
+import cors from 'cors';
 
 // response helper
 import jsonResponse from './helpers/response';
@@ -26,6 +27,9 @@ dotenv.config();
 
 const app = express();
 
+//cors
+app.use(cors());
+
 //ejs
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, '../public')));
@@ -39,7 +43,7 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
 
 app.get('/', validateCookie, (req, res) => {
-  res.render('index')
+  res.status(200).render("index");
 });
 app.use('/api/v1', messageRoute);
 
