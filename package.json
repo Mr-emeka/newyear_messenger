@@ -4,7 +4,7 @@
   "description": "web application that sends out messages for newyear",
   "main": "server.js",
   "scripts": {
-    "build": "babel server UI -d dist",
+    "build": "babel src public -d dist",
     "start": "babel-node src/server.js",
     "start-dev": "nodemon --exec babel-node src/server.js",
     "test": "nyc mocha --require @babel/register --require @babel/polyfill src/test --exit",
