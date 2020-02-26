@@ -7,9 +7,9 @@ const validateCookie = (req, res, next) => {
      return next();
     }
     else {
-      res.cookie('userId', uuid())
+      res.cookie('userId', uuid(), { httpOnly: true })
       console.log('cookie created');
-      res.render('index');
+      // res.render('index');
     }
     next();
 
