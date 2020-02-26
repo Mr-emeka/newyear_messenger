@@ -31,8 +31,8 @@ const app = express();
 app.use(cors());
 
 //ejs
-app.set('views', path.join(__dirname, './views'));
-app.use(express.static(path.join(__dirname, './views')));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 
@@ -44,12 +44,12 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 4000;
 
 app.get('/', validateCookie, (req, res) => {
-  res.status(200).render("./index");
+  res.status(200).render("index");
 });
 app.use('/api/v1', messageRoute);
 
 app.use('*', (req, res) => {
-  res.render('./error')
+  res.render('error');
   jsonResponse.error(res, 'error', 404, 'incorrect route');
 })
 
