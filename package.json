@@ -4,10 +4,8 @@
   "description": "web application that sends out messages for newyear",
   "main": "server.js",
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/server.js",
+    "build": "babel server UI -d dist",
+    "start": "babel-node src/server.js",
     "start-dev": "nodemon --exec babel-node src/server.js",
     "test": "nyc mocha --require @babel/register --require @babel/polyfill src/test --exit",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
