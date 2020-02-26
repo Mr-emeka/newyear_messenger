@@ -9,6 +9,7 @@ import cron from 'node-cron';
 import cookieParser from 'cookie-parser';
 import schedule from 'node-schedule';
 import path from 'path';
+import cors from 'cors';
 
 // response helper
 import jsonResponse from './helpers/response';
@@ -23,10 +24,14 @@ import validateCookie from './middleware/cookieValidator';
 
 // Configure .env
 dotenv.config();
+
 const app = express();
 
+//cors
+app.use(cors());
+
 //ejs
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 
@@ -35,15 +40,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 app.get('/', validateCookie, (req, res) => {
-  res.render('index')
+  res.status(200).render("index");
 });
 app.use('/api/v1', messageRoute);
 
 app.use('*', (req, res) => {
-  res.render('error')
+  res.render('error');
   jsonResponse.error(res, 'error', 404, 'incorrect route');
 })
 
