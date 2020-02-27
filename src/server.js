@@ -10,17 +10,20 @@ import cookieParser from 'cookie-parser';
 import schedule from 'node-schedule';
 import path from 'path';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 
 // response helper
 import jsonResponse from './helpers/response';
 
+// swagger doc
+import apiDocs from '../swagger.json';
+
+// cookie validator
+import validateCookie from './middleware/cookieValidator';
 
 // routers
-//welcome route
-// import welcomeRoute from './routes/welcome.route';
 // message route
 import messageRoute from './routes/Message.route';
-import validateCookie from './middleware/cookieValidator';
 
 // Configure .env
 dotenv.config();
@@ -40,12 +43,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 app.get('/', validateCookie, (req, res) => {
   res.status(200).render("index");
 });
 app.use('/api/v1', messageRoute);
+
+// swagger route
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(apiDocs))
 
 app.use('*', (req, res) => {
   res.render('error');
