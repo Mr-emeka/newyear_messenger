@@ -1,0 +1,133 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "Seamless-mailer",
+      "contact": {
+        "email": ""
+    }
+    },
+    "host": "https://seamless-mailer.herokuapp.com",
+    "basePath": "/api/v1",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/create": {
+        "post": {
+          "description": "a user can post a mail for a scheduled time",
+          "summary": "Post a message",
+          "tags": [
+            "Message"
+          ],
+          "operationId": "Postamessage",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/PostamessageRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/message/c4efbc01-6979-4718-9cd7-1fe685464444": {
+        "get": {
+          "description": "get messages created by a user",
+          "summary": "Get messages for a user",
+          "tags": [
+            "Message"
+          ],
+          "operationId": "Getmessagesforauser",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "PostamessageRequest": {
+        "title": "PostamessageRequest",
+        "example": {
+          "name": "mohammed",
+          "subject": "my topic",
+          "senderEmail": "my@email.com",
+          "message": "my message",
+          "receiversEmail": "me@gmail.com you@email.com them@yahoo.com he@outlookk.com",
+          "date": "2020-02-27T11:06"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "senderEmail": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "receiversEmail": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "subject",
+          "senderEmail",
+          "message",
+          "receiversEmail",
+          "date"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Message",
+        "description": ""
+      }
+    ]
+  }
