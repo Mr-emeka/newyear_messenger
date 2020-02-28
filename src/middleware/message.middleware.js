@@ -1,5 +1,5 @@
 import jsonResponse from '../helpers/response';
-import { comparing } from '../controllers/mailer';
+import { comparing } from '../controllers/cron-job';
 
 const messageValidator = (req, res, next) => {
     const { name, message, senderEmail, receiversEmail, subject, date } = req.body;
