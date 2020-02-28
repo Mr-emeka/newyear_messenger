@@ -33,12 +33,16 @@ let compare = selectedDay.toJSON();
 export let comparing = compare.substr(0, 16);
 
 
-cron.schedule('*/1 * * * *',()=>{
+cron.schedule('* * * * * *', async ()=>{
   try{
+    console.log('meee')
     let getData = await pool.query(`SELECT * FROM messages WHERE date=$1 AND sent=$2`, [comparing,false]);
-   
+   if(getData.rowCount) {
+    console.log(getData)
+
+   }
     // if current date matchs a record in the db 
-     if (getData.rows[0]) {
+     if (getData.rowCount) {
       let mailOptions = {
         from: 'Seamless-mailer',
         to: `${getData.rows[0].receiver_emails[0]}`,
